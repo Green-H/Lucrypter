@@ -9,12 +9,14 @@ from PIL import Image
 def text_to_binary(text):
     # Convert input text into binary
     binary_text = ''.join(format(ord(char), '08b') for char in text)
+    binary_text =binary_text + "00000000"
     return binary_text
 
 
 def encryptLSB(text, image, output_path):
     image = Image.open(image)
-    binary_text = text_to_binary(text) + "00000000"
+    binary_text = text_to_binary(text)
+    print(binary_text)
     width, height = image.size
     print(len(binary_text))
     if len(binary_text) > width * height:
@@ -22,18 +24,21 @@ def encryptLSB(text, image, output_path):
     # The index of the char currently being processed
     index = 0
     data_done = False
+    current_bit = binary_text[index]
     for y in range(height):
         for x in range(width):
             if not data_done:
                 pixel = list(image.getpixel((x, y)))
+
                 print("Pixel selezionato: ",pixel, " coordinate x: ", x, " coordinate y: ", y)
                 # Distributing the data in all three RGB values allows less noticeable changes in the final image
                 # at this stage a pixel looks like this pixel = [250,120,36]
                 # we need to access the LSB of each of those channels and replace it with our data
                 for channel in range(3):
+                    new_lsb = 0b0 if current_bit==0 else 0b1
                     # Set the LSB to zero to avoid conflicts and then to the value of the current binary data
-                    pixel[channel] = pixel[channel] & 0b11111110 | int(binary_text[index])
-
+                    pixel[channel] = (pixel[channel] & ~1) | new_lsb
+                    print(pixel)
                 # Update the pixel
                 image.putpixel((x, y), tuple(pixel))
                 print("pixel modificato:  ",pixel)
