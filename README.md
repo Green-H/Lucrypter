@@ -1,3 +1,4 @@
+jekyll-theme-minimal
 # Lucrypter
 Lucrypter allows to encrypt text messages within lossless image formats, it currently supports LSB encryption and PNG
 
