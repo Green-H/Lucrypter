@@ -4,6 +4,7 @@ Possible Encryption levels on lossless compression file types:
 - LSB
 """
 from PIL import Image
+import argparse
 
 
 def text_to_binary(text):
@@ -11,11 +12,12 @@ def text_to_binary(text):
     binary_text = ''.join(format(ord(char), '08b') for char in text)
     # Terminator sequence used later in decryption
     binary_text = binary_text + "00000000"
-    print("The string converted to binary is: " + binary_text)
     return binary_text
 
 
-def encryptLSB(text, image, output_path):
+def encryptLSB(text, image, output_path=None):
+    if output_path is None:
+        output_path = image
     image = Image.open(image)
     binary_text = text_to_binary(text)
     width, height = image.size
@@ -28,7 +30,6 @@ def encryptLSB(text, image, output_path):
         for x in range(width):
             if not data_done:
                 pixel = list(image.getpixel((x, y)))
-                print("Pixel values before encryption: ", image.getpixel((x, y)))
                 current_data_bit = int(binary_text[index], base=2)
                 # Distributing the data in all three RGB values allows less noticeable changes in the final image
                 # at this stage a pixel looks like this pixel = [250,120,36]
@@ -38,8 +39,6 @@ def encryptLSB(text, image, output_path):
                     pixel[channel] = (pixel[channel] & ~1) | current_data_bit
                 # Update the pixel
                 image.putpixel((x, y), tuple(pixel))
-                print("Pixel values after encryption: ", image.getpixel((x, y)))
-                print("--------------------------------------")
                 # Pass to the next data bit
                 index += 1
                 # if done with the text, set flag to true and exit
@@ -47,10 +46,6 @@ def encryptLSB(text, image, output_path):
                     data_done = True
     # Save the image
     image.save(output_path)
-    print(">>>>>>>>>>>>>>>>>>>>>>>><")
-    test = Image.open(output_path)
-    print("The processed image first pixel is: ", image.getpixel((0, 0)))
-    print("In the output image the first pixel is: ", test.getpixel((0, 0)))
 
 
 def decryptLSB(image):
@@ -65,18 +60,33 @@ def decryptLSB(image):
             bytestring += str(bit)
             if len(bytestring) == 8:
                 if bytestring == "00000000":
-                    return msg
+                    print(msg)
+                    return 0
                 msg += chr(int(bytestring, base=2))
-                print(msg)
                 bytestring = ""
 
 
-encode = ("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum massa maximus turpis "
-          "iaculis efficitur. Ut non ullamcorper leo. Cras tincidunt ligula vitae diam pellentesque feugiat. Nulla "
-          "quis turpis ac magna pellentesque varius nec vitae neque. Vivamus et augue dapibus, dapibus ligula id, "
-          "interdum elit. Duis imperdiet est scelerisque tempus interdum. Duis rutrum consequat metus eget "
-          "sollicitudin. Nunc elementum venenatis facilisis.")
-encryptLSB(encode, "PNG_transparency_demonstration_1.png", "pngtest.png")
-print("===============================================================================")
+def main():
+    parser = argparse.ArgumentParser(
+        description='Lucrypter is a small program that allow to encrypt and decrypt text using LSB steganography')
+    parser.add_argument('-e', '--encrypt', nargs='+', help='Asks for text to encrypt and an image to hide it in, '
+                                                           'optional argument if you want the encrypted image in a '
+                                                           'different path')
+    parser.add_argument('-d', '--decrypt', nargs=1, help='Decrypt the image extracting the text')
 
-decryptLSB("pngtest.png")
+    args = parser.parse_args()
+
+    if args.encrypt:
+        input_text = input("Enter the text to encrypt: ")
+        input_image = args.encrypt[0]
+        output_image = args.encrypt[-1] if len(args.encrypt) >= 2 else None
+        encryptLSB(input_text, input_image, output_image)
+    elif args.decrypt:
+        input_image = args.decrypt[0]
+        decryptLSB(input_image)
+    else:
+        print("Specify either the --encrypt/--decrypt flag")
+
+
+if __name__ == '__main__':
+    main()
