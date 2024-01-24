@@ -5,7 +5,7 @@
 
 
 # Lucrypter
-Lucrypter allows to encrypt text messages within lossless image formats, it currently supports LSB encryption and PNG
+Lucrypter is a steganography encryptor and decryptor that allows to encrypt text messages within lossless image formats, it currently supports LSB encryption and PNG
 
 ## Usage
 To use Lucrypter run the python script in the terminal with the following options:
