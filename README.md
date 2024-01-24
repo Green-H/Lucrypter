@@ -1,3 +1,9 @@
+<a>
+    <img src="https://i.imgur.com/MYoL8dH.png" alt="Aimeos logo" title="Aimeos" align="right" height="200" />
+</a>
+
+
+
 # Lucrypter
 Lucrypter allows to encrypt text messages within lossless image formats, it currently supports LSB encryption and PNG
 
