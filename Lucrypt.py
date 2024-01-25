@@ -9,9 +9,9 @@ import argparse
 
 def text_to_binary(text):
     # Convert input text into binary
-    binary_text = ''.join(format(ord(char), '08b') for char in text)
+    binary_text = ''.join(format(ord(char), '016b') for char in text)
     # Terminator sequence used later in decryption
-    binary_text = binary_text + "00000000"
+    binary_text = binary_text + "0000000000000000"
     return binary_text
 
 
@@ -58,8 +58,8 @@ def decryptLSB(image):
             pixel = list(image.getpixel((x, y)))
             bit = pixel[0] & 0b00000001
             bytestring += str(bit)
-            if len(bytestring) == 8:
-                if bytestring == "00000000":
+            if len(bytestring) == 16:
+                if bytestring == "0000000000000000":
                     print(msg)
                     return 0
                 msg += chr(int(bytestring, base=2))
