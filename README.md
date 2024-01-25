@@ -1,11 +1,11 @@
 <a>
-    <img src="https://i.imgur.com/MYoL8dH.png" alt="Aimeos logo" title="Aimeos" align="right" height="200" />
+    <img src="https://i.imgur.com/MYoL8dH.png" alt="Lucrypter logo" title="Lucrypter" align="right" height="200" />
 </a>
 
 
 
 # Lucrypter
-Lucrypter is a steganography encryptor and decryptor that allows to encrypt text messages within lossless image formats, it currently supports LSB encryption and PNG
+Lucrypter is a steganography encryptor and decrypter that allows to encrypt text messages within lossless image formats, it currently supports LSB encryption and PNG
 
 ## Usage
 To use Lucrypter run the python script in the terminal with the following options:

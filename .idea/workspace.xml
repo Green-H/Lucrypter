@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f43a1aec-7555-41bb-8423-3be9f8d36547" name="Changes" comment="Project setup">
-      <change beforePath="$PROJECT_DIR$/.idea/Lucrypter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Lucrypter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lucrypt.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lucrypt.py" afterDir="false" />
-    </list>
+    <list default="true" id="f43a1aec-7555-41bb-8423-3be9f8d36547" name="Changes" comment="Project setup" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +97,7 @@
       <workItem from="1705833189429" duration="1867000" />
       <workItem from="1706020467596" duration="28293000" />
       <workItem from="1706172505471" duration="1655000" />
-      <workItem from="1706195759047" duration="4826000" />
+      <workItem from="1706195759047" duration="5151000" />
     </task>
     <task id="LOCAL-00001" summary="Project setup">
       <option name="closed" value="true" />
