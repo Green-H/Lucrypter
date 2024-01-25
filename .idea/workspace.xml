@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f43a1aec-7555-41bb-8423-3be9f8d36547" name="Changes" comment="Project setup">
+      <change beforePath="$PROJECT_DIR$/.idea/Lucrypter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Lucrypter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lucrypt.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lucrypt.py" afterDir="false" />
     </list>
@@ -55,7 +57,7 @@
       <recent name="C:\Users\lukas\PycharmProjects\Lucrypter" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Lucrypt">
+  <component name="RunManager">
     <configuration name="Lucrypt" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Lucrypter" />
       <option name="ENV_FILES" value="" />
@@ -79,34 +81,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Lucrypter" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.client" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -128,6 +102,7 @@
       <workItem from="1705833189429" duration="1867000" />
       <workItem from="1706020467596" duration="28293000" />
       <workItem from="1706172505471" duration="1655000" />
+      <workItem from="1706195759047" duration="4826000" />
     </task>
     <task id="LOCAL-00001" summary="Project setup">
       <option name="closed" value="true" />
