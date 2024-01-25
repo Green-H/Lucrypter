@@ -9,8 +9,16 @@ Lucrypter is a steganography encryptor and decrypter that allows to encrypt text
 
 ## Usage
 ### Installation
-To run Lucrypter you need the `PIL Image` module, you can install it  `requirements.txt` t
-### Run
+To run Lucrypter you only need the [PIL Image module](https://pillow.readthedocs.io/en/stable/reference/Image.html), you can install it directly running in the terminal 
+```
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade Pillow
+```
+or using the `requirements.txt`
+```
+pip install -r requirements.txt
+```
+### Running
 Open your terminal and navigate to the script folder using `cd`
 ```
 C:\Users\Luca>cd Documents\GitHub\Lucrypter
