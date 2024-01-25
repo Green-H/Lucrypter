@@ -5,7 +5,7 @@
 
 
 # Lucrypter
-Lucrypter is a steganography encryptor and decrypter that allows to encrypt text messages within lossless image formats, it currently supports LSB encryption and PNG
+Lucrypter is a steganography encrypter and decrypter that allows to encrypt text messages within lossless image formats, it currently supports LSB encryption and PNG
 
 ## Usage
 ### Installation
