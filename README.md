@@ -32,3 +32,9 @@ To use Lucrypter run the python script in the terminal with the following option
 | `python Lucrypt.py -e <IMAGE_PATH.png>`                        | Asks for input text and hides it inside IMAGE_PATH.png, original image will be modified                                                                                                    |
 | `python Lucrypt.py -e <IMAGE_PATH.png> <OUT_PATH.png>`         | Asks for input text and hides it in a copy of IMAGE.png called OUT_PATH, <br> if OUT_PATH.png  doesn't exist it will be created, otherwise the existing file OUT_PATH.png will be modified |
 | `python Lucrypt.py -d <IMAGE_PATH.png>`                        | Prints the text hidden in IMAGE_PATH.png                                                                                                                                                   |
+
+## How does it work?
+Every digital image is made of `pixels`, each pixel contains information about the **color** and sometimes
+the **transparency** it will display. Colored images are usually saved with the `RGB` pixel format, where
+the color is expressed as the amount of the `Red`,`Green`and `Blue` the pixel contains:
+
