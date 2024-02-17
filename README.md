@@ -26,15 +26,6 @@ C:\Users\Luca>cd Documents\GitHub\Lucrypter
 C:\Users\Luca\Documents\GitHub\Lucrypter> 
 ```
 
-### Example
-We will try to hide a string inside this image: <br>
-![image](https://github.com/Green-H/Lucrypter/assets/93196082/24a6491c-c6ca-4956-8d04-76096f40876d) <br>
-To do that we run the script with the following prompt: 
-```bash
-python Lucrypt.py -e 
-```
-
-
 To use Lucrypter run the python script in the terminal with the following options:
 | Example                                                        | Outcome                                                                                                                                                                                    |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,6 +33,27 @@ To use Lucrypter run the python script in the terminal with the following option
 | `python Lucrypt.py -e <IMAGE_PATH.png> <OUT_PATH.png>`         | Asks for input text and hides it in a copy of IMAGE.png called OUT_PATH, <br> if OUT_PATH.png  doesn't exist it will be created, otherwise the existing file OUT_PATH.png will be modified |
 | `python Lucrypt.py -d <IMAGE_PATH.png>`                        | Prints the text hidden in IMAGE_PATH.png                                                                                                                                                   |
 
+### Example
+We will try to hide a string inside this image: <br>
+![image](.\test images\testclean.png)<br>
+To do that we run the script with the following prompt: 
+```bash
+python .\Lucrypt.py -e '.\test images\testclean.png' '.\test images\output.png'
+```
+We will be prompted with what text to hide:
+```python
+Enter the text to encrypt: This string will be hidden inside the image copy output.png
+```
+A copy of the image with the encrypted message will be created:<br>
+![image](.\test images\output.png) <br>
+As you can see, no visual channge has occurred, to check if the output image has the correct message encrypted:
+```bash
+python .\Lucrypt.py -d '.\test images\output.png'
+```
+Which prints:
+```python
+This string will be hidden inside the image copy output.png
+```
 # How does it work?
 Every digital image is made of `pixels`, each pixel contains information about the **color** and sometimes
 the **transparency** it will display. Colored images are usually saved with the `RGB` pixel format, where
