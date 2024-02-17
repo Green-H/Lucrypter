@@ -26,24 +26,45 @@ def encryptLSB(text, image, output_path=None):
     # The index of the data bit currently being processed
     index = 0
     data_done = False
-    for y in range(height):
-        for x in range(width):
-            if not data_done:
-                pixel = list(image.getpixel((x, y)))
-                current_data_bit = int(binary_text[index], base=2)
-                # Distributing the data in all three RGB values allows less noticeable changes in the final image
-                # at this stage a pixel looks like this pixel = [250,120,36]
-                # we need to access the LSB of each of those channels and replace it with our data
-                for channel in range(3):
+    firstpixel = image.getpixel((0,0))
+    if len(firstpixel) == 3 or len(firstpixel) == 4:
+        for y in range(height):
+            for x in range(width):
+                if not data_done:
+                    pixel = list(image.getpixel((x, y)))
+                    current_data_bit = int(binary_text[index], base=2)
+                    # Distributing the data in all three RGB values allows less noticeable changes in the final image
+                    # at this stage a pixel looks like this pixel = [250,120,36]
+                    # we need to access the LSB of each of those channels and replace it with our data
+                    for channel in range(3):
+                        # Set the LSB to the value of the current binary data
+                        pixel[channel] = (pixel[channel] & ~1) | current_data_bit
+                    # Update the pixel
+                    image.putpixel((x, y), tuple(pixel))
+                    # Pass to the next data bit
+                    index += 1
+                    # if done with the text, set flag to true and exit
+                    if index == len(binary_text):
+                        data_done = True
+    elif len(firstpixel) == 2:
+        for y in range(height):
+            for x in range(width):
+                if not data_done:
+                    pixel = list(image.getpixel((x, y)))
+                    current_data_bit = int(binary_text[index], base=2)
+                    # A greyscale image has only two channels for each pixel, one for color and one for transparency
+                    # at this stage a pixel looks like this pixel = [250,10]
+                    # we need to access the LSB of each of those channels and replace it with our data
+                    # we don't touch the transparency channel to not reveal transparent pixels exposing the modification
                     # Set the LSB to the value of the current binary data
-                    pixel[channel] = (pixel[channel] & ~1) | current_data_bit
-                # Update the pixel
-                image.putpixel((x, y), tuple(pixel))
-                # Pass to the next data bit
-                index += 1
-                # if done with the text, set flag to true and exit
-                if index == len(binary_text):
-                    data_done = True
+                    pixel[0] = (pixel[0] & ~1) | current_data_bit
+                    # Update the pixel
+                    image.putpixel((x, y), tuple(pixel))
+                    # Pass to the next data bit
+                    index += 1
+                    # if done with the text, set flag to true and exit
+                    if index == len(binary_text):
+                        data_done = True
     # Save the image
     image.save(output_path)
 
