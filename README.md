@@ -26,6 +26,15 @@ C:\Users\Luca>cd Documents\GitHub\Lucrypter
 C:\Users\Luca\Documents\GitHub\Lucrypter> 
 ```
 
+### Example
+We will try to hide a string inside this image: <br>
+![image](https://github.com/Green-H/Lucrypter/assets/93196082/24a6491c-c6ca-4956-8d04-76096f40876d) <br>
+To do that we run the script with the following prompt: 
+```bash
+python Lucrypt.py -e 
+```
+
+
 To use Lucrypter run the python script in the terminal with the following options:
 | Example                                                        | Outcome                                                                                                                                                                                    |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
