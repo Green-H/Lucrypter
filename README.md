@@ -35,23 +35,23 @@ To use Lucrypter run the python script in the terminal with the following option
 
 ### Example
 We will try to hide a string inside this image: <br>
-![image](.\test images\testclean.png)<br>
+![test image](https://github.com/Green-H/Lucrypter/blob/master/test%20images/testclean.png)<br>
 To do that we run the script with the following prompt: 
 ```bash
 python .\Lucrypt.py -e '.\test images\testclean.png' '.\test images\output.png'
 ```
 We will be prompted with what text to hide:
-```python
+```bash
 Enter the text to encrypt: This string will be hidden inside the image copy output.png
 ```
 A copy of the image with the encrypted message will be created:<br>
-![image](.\test images\output.png) <br>
+![test image](https://github.com/Green-H/Lucrypter/blob/master/test%20images/output.png)<br>
 As you can see, no visual channge has occurred, to check if the output image has the correct message encrypted:
 ```bash
 python .\Lucrypt.py -d '.\test images\output.png'
 ```
 Which prints:
-```python
+```bash
 This string will be hidden inside the image copy output.png
 ```
 # How does it work?
