@@ -21,9 +21,9 @@ pip install -r requirements.txt
 ### Running
 Open your terminal and navigate to the script folder using `cd`
 ```bash
-C:\Users\Luca>cd Documents\GitHub\Lucrypter
+C:\Users\Usr>cd Documents\GitHub\Lucrypter
 
-C:\Users\Luca\Documents\GitHub\Lucrypter> 
+C:\Users\Usr\Documents\GitHub\Lucrypter> 
 ```
 
 To use Lucrypter run the python script in the terminal with the following options:
