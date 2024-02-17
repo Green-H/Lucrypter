@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```
 ### Running
 Open your terminal and navigate to the script folder using `cd`
-```
+```bash
 C:\Users\Luca>cd Documents\GitHub\Lucrypter
 
 C:\Users\Luca\Documents\GitHub\Lucrypter> 
