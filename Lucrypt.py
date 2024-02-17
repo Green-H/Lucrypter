@@ -22,11 +22,12 @@ def encryptLSB(text, image, output_path=None):
     binary_text = text_to_binary(text)
     width, height = image.size
     if len(binary_text) > width * height:
-        raise ValueError('Text too long to be encrypted in this image, provide a larger image')
+        raise ValueError('Text too long to be encrypted in this image, provide a larger image or a shorter message')
     # The index of the data bit currently being processed
     index = 0
     data_done = False
-    firstpixel = image.getpixel((0,0))
+    firstpixel = image.getpixel((0, 0))
+    # Check if the image is RGB or RGBA
     if len(firstpixel) == 3 or len(firstpixel) == 4:
         for y in range(height):
             for x in range(width):
@@ -46,6 +47,7 @@ def encryptLSB(text, image, output_path=None):
                     # if done with the text, set flag to true and exit
                     if index == len(binary_text):
                         data_done = True
+    # Check if the image is Greyscale
     elif len(firstpixel) == 2:
         for y in range(height):
             for x in range(width):
@@ -65,6 +67,8 @@ def encryptLSB(text, image, output_path=None):
                     # if done with the text, set flag to true and exit
                     if index == len(binary_text):
                         data_done = True
+        else:
+            raise ValueError("Invalid pixel structure, the png image has to be either RGB, RGBA or Greyscale")
     # Save the image
     image.save(output_path)
 
@@ -89,24 +93,25 @@ def decryptLSB(image):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Lucrypter is a small program that allow to encrypt and decrypt text using LSB steganography')
-    parser.add_argument('-e', '--encrypt', nargs='+', help='Asks for text to encrypt and an image to hide it in, '
-                                                           'optional argument if you want the encrypted image in a '
-                                                           'different path')
-    parser.add_argument('-d', '--decrypt', nargs=1, help='Decrypt the image extracting the text')
+        description='Lucrypter is a small program that allows to encrypt and decrypt text using LSB steganography')
+    parser.add_argument('-e', '--encrypt', nargs='+', metavar=("<IMAGE_PATH>", "<OUT_PATH>"),
+                        help='Asks for text to encrypt and an image to hide it in, '
+                             'optional argument if you want the encrypted image in a different path')
+
+    parser.add_argument('-d', '--decrypt', nargs=1, metavar="<IMAGE_PATH>", help='Decrypt the image extracting the text')
 
     args = parser.parse_args()
 
     if args.encrypt:
         input_text = input("Enter the text to encrypt: ")
         input_image = args.encrypt[0]
-        output_image = args.encrypt[-1] if len(args.encrypt) >= 2 else None
+        output_image = args.encrypt[-1] if len(args.encrypt) == 2 else None
         encryptLSB(input_text, input_image, output_image)
     elif args.decrypt:
         input_image = args.decrypt[0]
         decryptLSB(input_image)
     else:
-        print("Specify either the --encrypt/--decrypt flag")
+        print("Specify either the --encrypt or --decrypt flag")
 
 
 if __name__ == '__main__':
