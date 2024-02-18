@@ -46,7 +46,7 @@ Enter the text to encrypt: This string will be hidden inside the image copy outp
 ```
 A copy of the image with the encrypted message will be created:<br>
 ![test image](https://github.com/Green-H/Lucrypter/blob/master/test%20images/output.png)<br>
-As you can see, no visual channge has occurred, to check if the output image has the correct message encrypted:
+As you can see, no visual change has occurred, to check if the output image has the correct message encrypted:
 ```bash
 python .\Lucrypt.py -d '.\test images\output.png'
 ```
